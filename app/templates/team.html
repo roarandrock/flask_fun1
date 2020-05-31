@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% extends "base.html" %}
+</head>
+<body>
+{% block content %}
+    <h1>Team: {{ team_name }}</h1>
+    <h2>Team Color: {{ team_color }}</h2>
+    <h3>Players:</h3>
+    {% for player in player_names %}
+    <div><p>{{ player }}</p></div>
+    {% endfor %}
+{% endblock %}
+</body>
+</html>
