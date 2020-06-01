@@ -1,4 +1,12 @@
-from app import mongo
+from flask_wtf import FlaskForm
+from wtforms import StringField, BooleanField, SubmitField
+from wtforms.validators import DataRequired
+
+
+class NameChangeForm(FlaskForm):
+    player_name_new = StringField('New Player Name', validators=[DataRequired()])
+    submit = SubmitField("Submit")
+
 #
 # class Team():
 #     team_name =
@@ -14,3 +22,4 @@ from app import mongo
 #
 #     def __repr__(self):
 #         return '<Post {}>'.format(self.body)
+

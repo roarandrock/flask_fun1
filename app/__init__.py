@@ -1,9 +1,14 @@
 from flask import Flask
 from flask_pymongo import PyMongo
 from app import secrets_mine
+from flask_bootstrap import Bootstrap
+from config import Config
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
+app.config.from_object(Config)
+bootstrap = Bootstrap(app)
+
 db_username, db_pass = secrets_mine.login_details()
 # app.config["MONGO_URI"] = "mongodb+srv://ReadWriter1:MvnmPUNcpElMGKMd@clustertestgame-zbbya.gcp.mongodb.net/test?retryWrites=true&w=majority"
 # uri1 = "mongodb+srv://ReadWriter1:MvnmPUNcpElMGKMd@clustertestgame-zbbya.gcp.mongodb.net/gettingStarted" # points directly to db

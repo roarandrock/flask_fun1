@@ -9,7 +9,16 @@
     <h2>Team Color: {{ team_color }}</h2>
     <h3>Players:</h3>
     {% for player in player_names %}
-    <div><p>{{ player }}</p></div>
+    <p>
+        <div class="row">
+            <div class="column">
+                {{ player }}
+            </div>
+            <div class="column">
+                <a href="{{ url_for('player_name_change', player_name=player ) }}">Change name?</a>
+            </div>
+        </div>
+    </p>
     {% endfor %}
 {% endblock %}
 </body>

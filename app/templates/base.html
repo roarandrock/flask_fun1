@@ -1,28 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<html>
-    <head>
-        {% if title %}
-        <title>{{ title }}</title>
-        {% else %}
-        <title>FutureSport Manager</title>
-        {% endif %}
-    </head>
-    <body>
-        <div>
-          Hello Manager of the FutureSport
-          <a href="{{ url_for('index') }}">Home</a>
+{% block title %}
+    FutureSport Management
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}"> Home</a>
         </div>
-        <hr>
-        {% with messages = get_flashed_messages() %}
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %}
+                {% with messages = get_flashed_messages() %}
         {% if messages %}
-        <ul>
             {% for message in messages %}
-            <li>{{ message }}</li>
+            <div class="alert alert-info" role="alert">{{ message }}</div>
             {% endfor %}
-        </ul>
         {% endif %}
         {% endwith %}
-        {% block content %}{% endblock %}
-    </body>
-</html>
+    </div>
+{% endblock %}
