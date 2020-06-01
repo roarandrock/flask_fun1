@@ -1,2 +1,6 @@
 # ignore the secrets file
 secrets_mine.py
+
+# ignore the venv
+venv/
+
